@@ -7,4 +7,163 @@ body {
     scroll-behavior: smooth;
     margin: 0;
     /* overflow: hidden;  */
+    font-family: 'Lato';
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
+}
+
+.headerIconDiv {
+    display: flex;
+    justify-content: space-evenly;
+    width: 332px;
+    align-items: center;
+}
+
+.headerIcon {
+    width: 24px;
+    height: 24px;
+
+}
+
+.headerprofilIcon {
+    border-radius: 50%;
+    width: 35px;
+    height: 36px;
+}
+
+.logo {
+    width: 128px;
+    height: 48px;
+    object-fit: cover;
+}
+
+.searchInput {
+    border-radius: 4px;
+    height: 32px;
+    width: 214px;
+    background-image: url(/img/lupe.png);
+    background-position: 36px 2px;
+    background-repeat: no-repeat;
+    background-color: #EFEFEF;
+    border: hidden;
+}
+
+::placeholder {
+    text-align: center;
+}
+
+.mainDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.aside {
+    margin-left: 8px;
+}
+
+.linkDiv {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 4px;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.linkDiv:hover {
+    background-color: #EFEFEF;
+    cursor: pointer;
+}
+
+.menuLink {
+    margin-left: 8px;
+}
+
+.profilArticle {
+    width: 376px;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+.profilImage {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.ownerprofilSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.ownerprofil {
+    display: flex;
+    justify-content: space-around;
+}
+
+.profilSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.profilheader {
+    display: flex;
+    width: 376px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.h3 {
+    color: gray;
+}
+
+.d-none{
+    display: none;
+}
+
+.profil {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    width: 376px;
+    align-items: center;
+}
+
+.names {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 8px;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.persons {
+    display: flex;
+    cursor: pointer;
+}
+
+.profilButtons {
+    height: 24px;
+    background: none;
+    border: none;
+    color: #5fa9da;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.greyColor {
+    color: #b4b2b2;
 }

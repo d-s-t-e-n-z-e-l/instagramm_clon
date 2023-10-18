@@ -1,15 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
     <script src="script.js"></script>
-    <link rel="icon" href="" type="image/png">
-    <title>Document</title>
+    <link rel="icon" href="/img/instagram.png" type="image/png">
+    <title>Instagram</title>
 </head>
+
 <body>
-    
+    <header class="header">
+        <img class="logo" src="/img/logo-letters.jpg" alt="">
+        <input id="searchInput" class="searchInput" type="text" placeholder="Suchen" style="font-family: 'Lato'">
+        <div class="headerIconDiv">
+            <img class="headerIcon" src="/img/heim.png" alt="send">
+            <img class="headerIcon" src="/img/direktes-instagram.png" alt="kompass">
+            <img class="headerIcon" src="/img/kompass.png" alt="home">
+            <img class="headerIcon" src="/img/herz.png" alt="heart">
+            <img class="headerIcon headerprofilIcon" src="/img/profil.png" alt="profil">
+        </div>
+    </header>
+    <div class="mainDiv">
+        <aside class="aside">
+            <div class="linkDiv"> <img class="headerIcon" src="/img/heim.png" alt=""> <span
+                    class="menuLink">Startseite</span></div>
+            <div class="linkDiv"> <img class="headerIcon" src="/img/suche.png" alt=""> <span
+                    class="menuLink">Suchen</span></div>
+            <div class="linkDiv"> <img class="headerIcon" src="/img/kompass.png" alt=""> <span
+                    class="menuLink">Entdecken</span></div>
+            <div class="linkDiv"> <img class="headerIcon" src="/img/video.png" alt=""> <span
+                    class="menuLink">Reels</span></div>
+            <div class="linkDiv"> <img class="headerIcon" src="/img/direktes-instagram.png" alt=""> <span
+                    class="menuLink">Nachrichten</span></div>
+            <div class="linkDiv"> <img class="headerIcon" src="/img/herz.png" alt=""> <span
+                    class="menuLink">Benachrichtungen</span></div>
+            <div class="linkDiv"> <img class="headerIcon" src="/img/instagram-post.png" alt=""> <span
+                    class="menuLink">Erstellen</span></div>
+            <div class="linkDiv"> <img class="headerIcon headerprofilIcon" src="/img/profil.png" alt=""> <span
+                    class="menuLink">Profil</span></div>
+        </aside>
+
+        <main>
+            <article class="postlist"></article>
+            <article class="profilArticle">
+                <section class="ownerprofilSection">
+                    <div>
+                        <div class="ownerprofil">
+                            <img class="profilImage" src="/img/profil.png" alt="">
+                            <div class="names">
+                                <span>d.stenzel</span>
+                                <span class="greyColor">Desiree Stenzel</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="profilButtons" style="font-family: 'Lato'">Wechseln</button>
+                </section>
+                <section>
+                    <div class="profilSection">
+                        <div class="profilheader">
+                            <h3 class="h3">Vorschläge für dich</h3><button onclick="viewRecommendations()" class="profilButtons" style="font-family: 'Lato'">Alle ansehen</button>
+                        </div>
+                        <div class="d-none" id="recommentProfils">
+                            <div class="profil">
+                                <div class="persons">
+                                    <img class="profilImage" src="/img/tyrannoR.jpg" alt="">
+                                    <div class="names">
+                                        <span>tyrannoR</span>
+                                        <span class="greyColor">Follows You</span>
+                                    </div>
+                                </div>
+                                <button class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
+                            </div>
+                            <div class="profil">
+                                <div class="persons">
+                                    <img class="profilImage" src="/img/brach.jpg" alt="">
+                                    <div class="names">
+                                        <span>brach87</span>
+                                        <span class="greyColor">Follows you</span>
+                                    </div>
+                                </div>
+                                <button class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
+                            </div>
+                            <div class="profil">
+                                <div class="persons"> <img class="profilImage" src="/img/pterano.jpg" alt="">
+                                    <div class="names">
+                                        <span>Pteranodon</span>
+                                        <span class="greyColor">Follows you</span>
+                                    </div>
+                                </div>
+                                <button class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
+                            </div>
+                        </div>
+                </section>
+
+            </article>
+        </main>
+
+    </div>
+    <footer><a href="https://www.flaticon.com/de/kostenlose-icons/instagram" title="instagram Icons">Instagram Icons
+            erstellt von pictranoosa - Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/senden" title="senden Icons">Senden Icons erstellt von
+            Freepik - Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/kompass" title="kompass Icons">Kompass Icons erstellt von
+            Freepik - Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/herz" title="herz Icons">Herz Icons erstellt von Freepik -
+            Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/instagram-logo"
+            title="instagram-logo Icons">Instagram-logo Icons erstellt von Pixel perfect - Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/kommentar" title="kommentar Icons">Kommentar Icons
+            erstellt von flatart_icons - Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/instagram" title="instagram Icons">Instagram Icons
+            erstellt von pictranoosa - Flaticon</a>
+        <br><a href="https://www.flaticon.com/de/kostenlose-icons/video" title="video Icons">Video Icons erstellt von
+            pictranoosa - Flaticon</a>
+        <br><a href="https://www.flaticon.com/de/kostenlose-icons/plus" title="plus Icons">Plus Icons erstellt von
+            Freepik - Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/lupe" title="lupe Icons">Lupe Icons erstellt von Ayub
+            Irawan - Flaticon</a>
+    </footer>
+
 </body>
+
 </html>
