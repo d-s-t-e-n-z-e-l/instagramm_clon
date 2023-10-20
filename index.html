@@ -23,7 +23,7 @@
             <img class="headerIcon headerprofilIcon" src="/img/profil.png" alt="profil">
         </div>
     </header>
-    <div class="mainDiv">
+    <div class="wholebodyDiv">
         <aside class="aside">
             <div class="linkDiv"> <img class="headerIcon" src="/img/heim.png" alt=""> <span
                     class="menuLink">Startseite</span></div>
@@ -43,8 +43,53 @@
                     class="menuLink">Profil</span></div>
         </aside>
 
-        <main>
-            <article class="postlist"></article>
+        <main class="mainDiv">
+            <article class="postlist">
+                <section class="singlepost">
+                    <header class="postheader">
+                        <div class="profildata">
+                            <img class="profilImage" src="/img/profilmom.jpg" alt="">
+                            <div class="userdata">
+                                <span>username • x Stunden</span>
+                                <span>location</span>
+                            </div>
+                        </div>
+                        <img class="headerIcon" src="/img/punkte.png" alt="">
+                    </header>
+                    <figure class="postdata">
+                        <img class="postImage" src="/img/codemom.jpg" alt="">
+                        <div class="postIconDiv">
+                            <div class="postIconsLeft">
+                                <img class="headerIcon" src="/img/herz.png" alt="">
+                                <img class="headerIcon" src="/img/comment.png" alt="">
+                                <img class="headerIcon" src="/img/direktes-instagram.png" alt="">
+                            </div>
+                            <div class="postIconsRight">
+                                <img class="headerIcon" src="/img/instagram-speichern.png" alt="">
+                            </div>
+                        </div>
+                        <p class="imagesubtext">
+                            <span class="likes">Gefällt: (variable +1) Mal</span>
+                        <div class="descriptionDiv">
+                            <span class="descriptionheader">header</span>
+                            <span>description</span>
+                        </div>
+                        </p>
+
+                    </figure>
+                    <figure class="commentDiv">
+                        <div class="singleComment">
+                            <span class="commentinguser">com user</span><span class="commentext">commentext</span>
+                        </div>
+                    </figure>
+
+                    <figure class="postsubline">
+                        <input class="commentInput" type="comment" placeholder="Kommentar hinzufügen ...">
+                        <button class="postbutton">Posten</button>
+                    </figure>
+                </section>
+            </article>
+
             <article class="profilArticle">
                 <section class="ownerprofilSection">
                     <div>
@@ -61,7 +106,8 @@
                 <section>
                     <div class="profilSection">
                         <div class="profilheader">
-                            <h3 class="h3">Vorschläge für dich</h3><button onclick="viewRecommendations()" class="profilButtons" style="font-family: 'Lato'">Alle ansehen</button>
+                            <h3 class="h3">Vorschläge für dich</h3><button onclick="viewRecommendations()"
+                                class="profilButtons" style="font-family: 'Lato'">Alle ansehen</button>
                         </div>
                         <div class="d-none" id="recommentProfils">
                             <div class="profil">
@@ -72,7 +118,7 @@
                                         <span class="greyColor">Follows You</span>
                                     </div>
                                 </div>
-                                <button class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
+                                <button id="abo1" onclick="setAbo(1)" class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
                             </div>
                             <div class="profil">
                                 <div class="persons">
@@ -82,7 +128,7 @@
                                         <span class="greyColor">Follows you</span>
                                     </div>
                                 </div>
-                                <button class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
+                                <button id="abo2" onclick="setAbo(2)" class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
                             </div>
                             <div class="profil">
                                 <div class="persons"> <img class="profilImage" src="/img/pterano.jpg" alt="">
@@ -91,7 +137,7 @@
                                         <span class="greyColor">Follows you</span>
                                     </div>
                                 </div>
-                                <button class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
+                                <button id="abo3" onclick="setAbo(3)" class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
                             </div>
                         </div>
                 </section>
@@ -127,6 +173,13 @@
         <br>
         <a href="https://www.flaticon.com/de/kostenlose-icons/lupe" title="lupe Icons">Lupe Icons erstellt von Ayub
             Irawan - Flaticon</a>
+        <br><a href="https://www.flaticon.com/de/kostenlose-icons/ui" title="ui Icons">Ui Icons erstellt von Cap Cool -
+            Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/kommentar" title="kommentar Icons">Kommentar Icons
+            erstellt von flatart_icons - Flaticon</a>
+        <br><a href="https://www.flaticon.com/de/kostenlose-icons/speichern" title="speichern Icons">Speichern Icons
+            erstellt von Freepik - Flaticon</a>
     </footer>
 
 </body>

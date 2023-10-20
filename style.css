@@ -51,6 +51,7 @@ body {
     background-repeat: no-repeat;
     background-color: #EFEFEF;
     border: hidden;
+    cursor: pointer;
 }
 
 ::placeholder {
@@ -59,7 +60,7 @@ body {
 
 .mainDiv {
     display: flex;
-    justify-content: space-between;
+    margin-right: 16px;
 }
 
 .aside {
@@ -82,6 +83,14 @@ body {
 
 .menuLink {
     margin-left: 8px;
+}
+
+.mainDiv {
+    display: flex;
+}
+
+.wholebodyDiv{
+    display: flex;
 }
 
 .profilArticle {
@@ -129,7 +138,7 @@ body {
     color: gray;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
 
@@ -167,3 +176,148 @@ body {
 .greyColor {
     color: #b4b2b2;
 }
+
+.postlist {
+    margin: 16px;
+}
+
+.singlepost {
+    width: 480px;
+    padding-bottom: 20px;
+    margin-bottom: 16px;
+    border-bottom: solid;
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: #DBDBDB;
+}
+
+.postheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profildata {
+    display: flex;
+}
+
+.userdata {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.postImage {
+    object-fit: cover;
+    width: 480px;
+}
+
+.postdata {
+    margin: 0;
+}
+
+.postIconDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.postIconsLeft {
+    display: flex;
+    gap: 16px;
+    margin-left: 8px;
+}
+
+.postIconsRight {
+    margin-right: 8px;
+}
+
+.imagesubtext {
+    display: flex;
+    flex-direction: column;
+}
+
+.likes {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.descriptionDiv{
+    display: flex;
+}
+
+.descriptionheader {
+    color: rgb(38, 38, 38);
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.postsubline {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.commentinguser {
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.commentDiv {
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+.postbutton {
+    cursor: pointer;
+    border: none;
+    color: #5fa9da;
+    background-color: white;
+}
+
+.commentInput {
+    width: 576px;
+    border: none;
+}
+
+input[type="comment"]::placeholder {
+    text-align: left;
+}
+
+@media(max-width: 1120px) {
+    .profilArticle, .profil, .profilheader{
+                width: 256px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .menuLink{
+                display: none;
+    }
+}
+
+@media(max-width: 860px) {
+    .searchInput, .profilArticle{
+                display: none;
+    }
+
+    .wholebodyDiv{
+        justify-content: space-between;
+    }
+
+}
+
+@media(max-width: 600px) {
+     .aside{
+                display: none;
+    }
+
+    .singlepost, .postImage{
+        width: 80vw;
+    }
+
+    .header{
+        justify-content: flex-start;
+    }
+}
+
