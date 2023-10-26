@@ -1,6 +1,6 @@
-* {
+/* * {
     outline: 1px solid red;
-}
+} */
 
 html,
 body {
@@ -12,9 +12,15 @@ body {
 
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 8px;
+}
+
+.headerrightdiv {
+    display: flex;
+    width: 65vw;
+    justify-content: space-between;
 }
 
 .headerIconDiv {
@@ -27,6 +33,7 @@ body {
 .headerIcon {
     width: 24px;
     height: 24px;
+    cursor: pointer;
 
 }
 
@@ -61,6 +68,8 @@ body {
 .mainDiv {
     display: flex;
     margin-right: 16px;
+    width: 80vw;
+    justify-content: center;
 }
 
 .aside {
@@ -89,7 +98,7 @@ body {
     display: flex;
 }
 
-.wholebodyDiv{
+.wholebodyDiv {
     display: flex;
 }
 
@@ -242,8 +251,10 @@ body {
     font-size: 16px;
 }
 
-.descriptionDiv{
+
+.descriptionDiv {
     display: flex;
+    flex-direction: column;
 }
 
 .descriptionheader {
@@ -268,6 +279,10 @@ body {
     margin-bottom: 16px;
 }
 
+.singleComment {
+    margin-bottom: 4px;
+}
+
 .postbutton {
     cursor: pointer;
     border: none;
@@ -278,6 +293,8 @@ body {
 .commentInput {
     width: 576px;
     border: none;
+    height: 36px;
+
 }
 
 input[type="comment"]::placeholder {
@@ -285,39 +302,57 @@ input[type="comment"]::placeholder {
 }
 
 @media(max-width: 1120px) {
-    .profilArticle, .profil, .profilheader{
-                width: 256px;
+
+    .profilArticle,
+    .profil,
+    .profilheader {
+        width: 256px;
     }
 }
 
 @media(max-width: 1000px) {
-    .menuLink{
-                display: none;
+    .menuLink {
+        display: none;
     }
 }
 
 @media(max-width: 860px) {
-    .searchInput, .profilArticle{
-                display: none;
+
+    .searchInput,
+    .profilArticle {
+        display: none;
     }
 
-    .wholebodyDiv{
+    .wholebodyDiv {
         justify-content: space-between;
     }
 
 }
 
 @media(max-width: 600px) {
-     .aside{
-                display: none;
+    .aside {
+        display: none;
     }
 
-    .singlepost, .postImage{
+    .singlepost,
+    .postImage {
         width: 80vw;
     }
 
-    .header{
+    .header {
         justify-content: flex-start;
+    }
+
+    .wholebodyDiv {
+        margin-left: 16px;
+        margin-right: 16px;
+        display: flex;
+        justify-content: center;
     }
 }
 
+@media(max-width: 440px) {
+    .headerIconDiv {
+        display: none;
+    }
+}

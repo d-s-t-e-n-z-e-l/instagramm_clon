@@ -7,65 +7,67 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
     <script src="script.js"></script>
-    <link rel="icon" href="/img/instagram.png" type="image/png">
+    <link rel="icon" href="img/instagram.png" type="image/png">
     <title>Instagram</title>
 </head>
 
-<body>
+<body onload="renderPosts()">
     <header class="header">
-        <img class="logo" src="/img/logo-letters.jpg" alt="">
-        <input id="searchInput" class="searchInput" type="text" placeholder="Suchen" style="font-family: 'Lato'">
-        <div class="headerIconDiv">
-            <img class="headerIcon" src="/img/heim.png" alt="send">
-            <img class="headerIcon" src="/img/direktes-instagram.png" alt="kompass">
-            <img class="headerIcon" src="/img/kompass.png" alt="home">
-            <img class="headerIcon" src="/img/herz.png" alt="heart">
-            <img class="headerIcon headerprofilIcon" src="/img/profil.png" alt="profil">
+        <div class="logodiv"><img class="logo" src="img/logo-letters.jpg" alt=""></div>
+        <div class="headerrightdiv">
+            <input id="searchInput" class="searchInput" type="text" placeholder="Suchen" style="font-family: 'Lato'">
+            <div class="headerIconDiv">
+                <img class="headerIcon" src="img/heim.png" alt="send">
+                <img class="headerIcon" src="img/direktes-instagram.png" alt="kompass">
+                <img class="headerIcon" src="img/kompass.png" alt="home">
+                <img class="headerIcon" src="img/herz.png" alt="heart">
+                <img class="headerIcon headerprofilIcon" src="img/profil.png" alt="profil">
+            </div>
         </div>
     </header>
     <div class="wholebodyDiv">
         <aside class="aside">
-            <div class="linkDiv"> <img class="headerIcon" src="/img/heim.png" alt=""> <span
+            <div class="linkDiv"> <img class="headerIcon" src="img/heim.png" alt=""> <span
                     class="menuLink">Startseite</span></div>
-            <div class="linkDiv"> <img class="headerIcon" src="/img/suche.png" alt=""> <span
+            <div class="linkDiv"> <img class="headerIcon" src="img/suche.png" alt=""> <span
                     class="menuLink">Suchen</span></div>
-            <div class="linkDiv"> <img class="headerIcon" src="/img/kompass.png" alt=""> <span
+            <div class="linkDiv"> <img class="headerIcon" src="img/kompass.png" alt=""> <span
                     class="menuLink">Entdecken</span></div>
-            <div class="linkDiv"> <img class="headerIcon" src="/img/video.png" alt=""> <span
+            <div class="linkDiv"> <img class="headerIcon" src="img/video.png" alt=""> <span
                     class="menuLink">Reels</span></div>
-            <div class="linkDiv"> <img class="headerIcon" src="/img/direktes-instagram.png" alt=""> <span
+            <div class="linkDiv"> <img class="headerIcon" src="img/direktes-instagram.png" alt=""> <span
                     class="menuLink">Nachrichten</span></div>
-            <div class="linkDiv"> <img class="headerIcon" src="/img/herz.png" alt=""> <span
+            <div class="linkDiv"> <img class="headerIcon" src="img/herz.png" alt=""> <span
                     class="menuLink">Benachrichtungen</span></div>
-            <div class="linkDiv"> <img class="headerIcon" src="/img/instagram-post.png" alt=""> <span
+            <div class="linkDiv"> <img class="headerIcon" src="img/instagram-post.png" alt=""> <span
                     class="menuLink">Erstellen</span></div>
-            <div class="linkDiv"> <img class="headerIcon headerprofilIcon" src="/img/profil.png" alt=""> <span
+            <div class="linkDiv"> <img class="headerIcon headerprofilIcon" src="img/profil.png" alt=""> <span
                     class="menuLink">Profil</span></div>
         </aside>
 
         <main class="mainDiv">
-            <article class="postlist">
+            <article id="postlist" class="postlist">
                 <section class="singlepost">
                     <header class="postheader">
                         <div class="profildata">
-                            <img class="profilImage" src="/img/profilmom.jpg" alt="">
+                            <img class="profilImage" src="img/profilmom.jpg" alt="">
                             <div class="userdata">
                                 <span>username • x Stunden</span>
                                 <span>location</span>
                             </div>
                         </div>
-                        <img class="headerIcon" src="/img/punkte.png" alt="">
+                        <img class="headerIcon" src="img/punkte.png" alt="">
                     </header>
                     <figure class="postdata">
-                        <img class="postImage" src="/img/codemom.jpg" alt="">
+                        <img class="postImage" src="img/codemom.jpg" alt="">
                         <div class="postIconDiv">
                             <div class="postIconsLeft">
-                                <img class="headerIcon" src="/img/herz.png" alt="">
-                                <img class="headerIcon" src="/img/comment.png" alt="">
-                                <img class="headerIcon" src="/img/direktes-instagram.png" alt="">
+                                <img class="headerIcon" src="img/herz.png" alt="">
+                                <img class="headerIcon" src="img/comment.png" alt="">
+                                <img class="headerIcon" src="img/direktes-instagram.png" alt="">
                             </div>
                             <div class="postIconsRight">
-                                <img class="headerIcon" src="/img/instagram-speichern.png" alt="">
+                                <img class="headerIcon" src="img/instagram-speichern.png" alt="">
                             </div>
                         </div>
                         <p class="imagesubtext">
@@ -82,7 +84,6 @@
                             <span class="commentinguser">com user</span><span class="commentext">commentext</span>
                         </div>
                     </figure>
-
                     <figure class="postsubline">
                         <input class="commentInput" type="comment" placeholder="Kommentar hinzufügen ...">
                         <button class="postbutton">Posten</button>
@@ -94,7 +95,7 @@
                 <section class="ownerprofilSection">
                     <div>
                         <div class="ownerprofil">
-                            <img class="profilImage" src="/img/profil.png" alt="">
+                            <img class="profilImage" src="img/profil.png" alt="">
                             <div class="names">
                                 <span>d.stenzel</span>
                                 <span class="greyColor">Desiree Stenzel</span>
@@ -112,32 +113,35 @@
                         <div class="d-none" id="recommentProfils">
                             <div class="profil">
                                 <div class="persons">
-                                    <img class="profilImage" src="/img/tyrannoR.jpg" alt="">
+                                    <img class="profilImage" src="img/tyrannoR.jpg" alt="">
                                     <div class="names">
                                         <span>tyrannoR</span>
                                         <span class="greyColor">Follows You</span>
                                     </div>
                                 </div>
-                                <button id="abo1" onclick="setAbo(1)" class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
+                                <button id="abo1" onclick="setAbo(1)" class="profilButtons"
+                                    style="font-family: 'Lato'">Abonnieren</button>
                             </div>
                             <div class="profil">
                                 <div class="persons">
-                                    <img class="profilImage" src="/img/brach.jpg" alt="">
+                                    <img class="profilImage" src="img/brach.jpg" alt="">
                                     <div class="names">
                                         <span>brach87</span>
                                         <span class="greyColor">Follows you</span>
                                     </div>
                                 </div>
-                                <button id="abo2" onclick="setAbo(2)" class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
+                                <button id="abo2" onclick="setAbo(2)" class="profilButtons"
+                                    style="font-family: 'Lato'">Abonnieren</button>
                             </div>
                             <div class="profil">
-                                <div class="persons"> <img class="profilImage" src="/img/pterano.jpg" alt="">
+                                <div class="persons"> <img class="profilImage" src="img/pterano.jpg" alt="">
                                     <div class="names">
                                         <span>Pteranodon</span>
                                         <span class="greyColor">Follows you</span>
                                     </div>
                                 </div>
-                                <button id="abo3" onclick="setAbo(3)" class="profilButtons" style="font-family: 'Lato'">Abonnieren</button>
+                                <button id="abo3" onclick="setAbo(3)" class="profilButtons"
+                                    style="font-family: 'Lato'">Abonnieren</button>
                             </div>
                         </div>
                 </section>
@@ -180,6 +184,9 @@
             erstellt von flatart_icons - Flaticon</a>
         <br><a href="https://www.flaticon.com/de/kostenlose-icons/speichern" title="speichern Icons">Speichern Icons
             erstellt von Freepik - Flaticon</a>
+        <br>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/instagram-wie" title="instagram wie Icons">Instagram wie
+            Icons erstellt von FR_Media - Flaticon</a>
     </footer>
 
 </body>
