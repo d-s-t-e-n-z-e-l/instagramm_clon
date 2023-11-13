@@ -5,7 +5,6 @@ function viewRecommendations() {
 function setAbo(i) {
     let buttonID = 'abo' + i;
     document.getElementById(buttonID).innerHTML = 'Abonniert';
-
 }
 
 let posts = [
@@ -20,6 +19,7 @@ let posts = [
         "description": "Ich seh plötzlich überall code und denke in if-Abfragen beim Gang zum Wickeltisch^^",
         "comments": ['SAAAME, aber mit Schoki', 'Ist das Styropor?', 'Hat deine kleine denn einen Bug gefunden?? :)'],
         "users": ['chantalG', 'anni', 'SvenB85'],
+        "heartcolors":['herz.png', 'herzred.png'],
     },
     {
         "profilbild": "profilkater.jpg",
@@ -32,6 +32,7 @@ let posts = [
         "description": "Schau ich so durch das Fenster bei dem Wetter, frage ich mich: bin ich aus- oder sind die eingesperrt?",
         "comments": ['ich würde fragen ob es es drinnen warm ist!', 'du darfst tagsüber raus?', 'du ausgesperrt! ganz klar! '],
         "users": ['blackPanther', 'catInside', 'Abra Catdabra'],
+        "heartcolors":['herz.png', 'herzred.png'],
     },
     {
         "profilbild": "profilmatti.jpg",
@@ -44,17 +45,24 @@ let posts = [
         "description": "War wieder in der Kältekammer in Postdam. Beste Laune nach 110 Grad Celsius Minus!",
         "comments": ['Ich geh auch öfter hin, es ist echt toll!', 'Freiwillig?', 'Wie klein ääh ich mein kalt war es denn :D'],
         "users": ['codingMom', 'The Miezer', 'SBenni'],
+        "heartcolors":['herz.png', 'herzred.png'],
     }
 ]
 
+function load() {
+    if (localStorage.getItem('savedJsonArray')) {// wenn etwas i locstor existiert, dann lese diese werte für das array posts aus
+        posts = getArray('savedJsonArray');//dem array posts werden die neuen werte aus dem local storage zugewiesen und sind bereit zum rendern
+    }
+    renderPosts(posts);
+}
 
-function renderPosts() {
+
+function renderPosts(currentposts) {
     let postlist = document.getElementById('postlist');
     postlist.innerHTML = '';
 
-    for (let i = 0; i < posts.length; i++) {// i wird die Wert 0 1 2 haben und durch die 3 jsons iterieren
-        const postarray = posts[i]; // ich verkürze das aufrufen der jsonwert durch zusammenfassen der i-ten json-ansprechung in einer variable
-        postlist.innerHTML += templateSinglePost(postarray, i);
+    for (let i = 0; i < currentposts.length; i++) {// i wird die Wert 0 1 2 haben und durch die 3 jsons iterieren
+        postlist.innerHTML += templateSinglePost(posts[i], i);
     }
 }
 
@@ -76,7 +84,7 @@ function templateSinglePost(postarray, i) {
                         <img class="postImage" src="img/${postarray['image']}" alt="">
                         <div class="postIconDiv">
                             <div class="postIconsLeft">
-                                <img onclick="like(${i})" id="heart${i}" class="headerIcon" src="img/herz.png" alt="">
+                                <img onclick="like(${i})" id="heart${i}" class="headerIcon" src="img/${postarray['heartcolors'][0]}" alt="">
                                 <img onclick="showComments(${i})" class="headerIcon" src="img/comment.png" alt="">
                                 <img class="headerIcon" src="img/direktes-instagram.png" alt="">
                             </div>
@@ -99,25 +107,16 @@ function templateSinglePost(postarray, i) {
                         <button onclick="addComment(${i})" class="postbutton">Posten</button>
                 </section>
     `;
-
 }
 
-function showComments(index) {// aktuelles i wird oben aus der aktuellen for-schleife genommen, index hat also heir den wert 0 oder 1 oder 2
-    const postarray = posts[index];
-    let updatedUsers = localStorage.getItem(`savedUsers${index}`)//hole aus dem speicher die werte hinter dme key und packe sie in die variable
-    postarray['users'] = JSON.parse(updatedUsers);
-    let updatedComments = localStorage.getItem(`savedComments${index}`);
-    postarray['comments'] = JSON.parse(updatedComments);
+
+function showComments(index) {
     let commentDiv = document.getElementById(`commentDiv${index}`);
     commentDiv.innerHTML = '';
-    renderComments(postarray, commentDiv);
-}
+    for (let j = 0; j < posts[index]['comments'].length; j++) {
+        let commentingUser = posts[index]['users'][j];// wert für j-tem wert aus users array im index-ten wert aus dem array posts
+        let commenttext = posts[index]['comments'][j];//wert für j-tem wert aus comments array im index-ten wert aus dem  array posts
 
-
-function renderComments(postarray, commentDiv) {
-    for (let j = 0; j < postarray['comments'].length; j++) {
-        let commentingUser = postarray['users'][j];// wert für j-tem wert aus users array im index-ten wert aus dem array posts
-        let commenttext = postarray['comments'][j];//wert für j-tem wert aus comments array im index-ten wert aus dem  array posts
         commentDiv.innerHTML +=/*html*/`
          <div class="singleComment">
                             <span class="commentinguser">${commentingUser}</span><span class="commentext">${commenttext}</span>
@@ -127,30 +126,39 @@ function renderComments(postarray, commentDiv) {
 
 
 function addComment(index) {
-    const postarray = posts[index];
-    let newComment = document.getElementById(`commentinput${index}`).value;
-    postarray['comments'].push(newComment);
-    postarray['users'].push('guestUSER');
-    saveInputs(`savedComments${index}`, postarray['comments']);// führt Speicherfunktion unten aus, Werte sind im localstorage
-    saveInputs(`savedUsers${index}`, postarray['users']);
-    showComments(index);  // falls die Kommenatre vorher nicht angezeigt wurden, erscheinen sie nun automatisch wenn ein kommentar ergänzt wird und zeigt ihn mit an
-}
-
-
-function saveInputs(key, array) {
-    let savedArrays = JSON.stringify(array);//packe die werte aus array in string unter variable1
-    localStorage.setItem(key, savedArrays);// speicher den string hinte rder Variable savedArrays in dem key ( der ist dann im local sotrage)
+    if (document.getElementById(`commentinput${index}`).value == '') { alert('Fülle das Kommentarfeld') }
+    else {
+        let newComment = document.getElementById(`commentinput${index}`).value;
+        posts[index]['comments'].push(newComment);
+        posts[index]['users'].push('guestUSER');
+        saveArray(`savedJsonArray`, posts);// führt Speicherfunktion 171 aus, Werte sind im locstor unter key savedJsonarray(ges. jsonArray)
+        document.getElementById(`commentinput${index}`).value = '';//leert das inputfeld
+        showComments(index);// falls die Kommenatre vorher nicht angezeigt wurden, erscheinen sie nun automatisch wenn ein kommentar ergänzt wird
+    }
 }
 
 
 function like(index) {
-    heartRed(index);
-    let likes = posts[index]['likes'];
-    let newLikes = likes + 1;
-    document.getElementById(`likeCounter${index}`).innerHTML = `Gefällt: ${newLikes} Mal`;
+    let heart = document.getElementById(`heart${index}`);
+    let countedLikes = posts[index]['likes'];//aktueller wert wird in die variable cou..gepackt
+    if (heart.src.includes('img/herz.png')){// wenn das Herz weiß ist
+        posts[index]['heartcolors'][0]= 'herzred.png';// Herz wird rot
+        posts[index]['likes'] = countedLikes + 1;//neuer höherer Wert bekommt eine Variable
+    }
+    else {// wenn das Herz nicht weiß, also Rot ist
+        posts[index]['heartcolors'][0]= 'herz.png';// setzt das Herz auf weiß
+        posts[index]['likes'] = countedLikes - 1;
+    }
+    saveArray(`savedJsonArray`, posts)// Der jetzige stand des gesamten jsonarrays wird gespeichert
+    load(posts);//seite wird mit allen neuen werten aus locstor aufgebaut
 }
 
 
-function heartRed(i) {
-    document.getElementById(`heart${i}`).src = 'img/herzred.png';
+function saveArray(key, array) {
+    localStorage.setItem(key, JSON.stringify(array));
+}
+
+
+function getArray(key) {
+    return JSON.parse(localStorage.getItem(key));
 }
